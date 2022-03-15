@@ -454,6 +454,7 @@ def main(argv):
         
         # free lockfile
         fcntl.lockf(fp, fcntl.LOCK_UN)
+        fp.close()
         os.remove(LOCK_FILE_NAME) if os.path.exists(LOCK_FILE_NAME) else None
 
     except getopt.GetoptError:
